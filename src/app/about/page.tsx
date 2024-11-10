@@ -8,7 +8,7 @@ export default function Page() {
         <div className={styles.page}>
             <main className={styles.main}>
                 <div className={aboutStyles.header}>
-                    <h1>About <soan className={'highlight'}>Me</soan></h1>
+                    <h1>About <span className={'highlight'}>Me</span></h1>
                 </div>
                 <div className={aboutStyles.content}>
                     <div style={{ position: 'relative'}}>
