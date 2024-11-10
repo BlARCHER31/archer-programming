@@ -24,7 +24,7 @@ export default function Project( { name, description, link, image, technologies 
                 <Image src={image} alt={name} width={250} height={250} />
             </div>
             <Link className={styles.link} target={'_blank'} href={link}><h3>{name}</h3></Link>
-            <p>{description}</p>
+            <p className={styles.description}>{description}</p>
             <div >
                 {technologies.map(tech => {
                     const Icon = tech.icon;
