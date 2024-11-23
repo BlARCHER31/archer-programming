@@ -1,36 +1,99 @@
+/* about.module.css */
+
 .header {
-    & h1 {
-        text-align: center;
-    }
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--foreground);
+    margin: 0;
 }
 
 .content {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
 }
 
-.information {
+.imageSection {
+    position: relative;
+    flex: 1;
+    max-width: 400px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-size: 16px;
-    margin-left: 20px;
+    justify-content: center;
+    align-items: center;
 }
 
 .imageBackground {
-    background: var(--highlight);
-    border-radius: 10px;
-    height: 300px;
-    width: 200px;
     position: absolute;
-    top: -10%;
-    left: -10%;
+    width: 280px;
+    height: 380px;
+    background: linear-gradient(135deg, var(--highlight), var(--highlight-light));
+    border-radius: 16px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
     z-index: -1;
 }
 
-
 .imageContainer {
+    width: 300px;
+    height: 400px;
     overflow: hidden;
-    height: 300px;
-    width: 200px;
-    border-radius: 8px;
+    border-radius: 16px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.imageContainer:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.information {
+    flex: 2;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--accent-light);
+}
+
+.information h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--foreground);
+    margin-bottom: 10px;
+}
+
+.information p {
+    margin: 0;
+    text-align: justify;
+}
+
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .imageSection {
+        max-width: 100%;
+    }
+
+    .information {
+        max-width: 90%;
+    }
 }

@@ -1,38 +1,121 @@
+/* navigation.module.css */
+
 .container {
-    background: var(--accent);
+    background: var(--background);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 1rem 2rem;
+    justify-content: flex-start;
+    padding: 2rem 1.5rem;
     position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
-    width: 200px;
+    width: 240px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border-right: 1px solid var(--gray-alpha-200);
+    overflow-y: auto;
 }
 
-.items {
+.profile {
     display: flex;
     flex-direction: column;
-    font-size: 16px;
-    justify-content: space-between;
-    height: 300px;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profileImage {
+    border-radius: 50%;
+    border: 3px solid var(--highlight);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.profileImage:hover {
+    transform: scale(1.05);
+    border-color: var(--highlight-light);
+}
+
+.name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--foreground);
+    margin: 0;
+}
+
+.title {
+    font-size: 1rem;
+    color: var(--accent-light);
+    margin: 0;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 10px 16px;
+    color: var(--accent-light);
+    border-radius: 8px;
+    transition: background 0.3s ease, transform 0.2s ease, color 0.3s ease;
+}
+
+.link:hover {
+    background: var(--highlight);
+    color: var(--background);
+    transform: translateX(10px);
 }
 
 .icon {
-    margin-right: 5px;
+    font-size: 1.4rem;
+    color: var(--highlight);
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.imageContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-    background: var(--highlight);
-    overflow: hidden;
-    margin-bottom: 50px;
+.icon:hover {
+    transform: scale(1.2);
+    color: var(--highlight-light);
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 200px;
+    }
+
+    .profileImage {
+        width: 80px;
+        height: 80px;
+    }
+
+    .name {
+        font-size: 1.2rem;
+    }
+
+    .title {
+        font-size: 0.9rem;
+    }
+
+    .link {
+        font-size: 0.9rem;
+    }
+
+    .icon {
+        font-size: 1.3rem;
+    }
 }

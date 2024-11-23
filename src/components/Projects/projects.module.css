@@ -1,37 +1,109 @@
-.container {
-    background-color: var(--primary-dark);
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+/* projects.module.css */
+
+.card {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    margin: 25px;
+    background-color: var(--background);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 400px;
+    margin: 30px auto;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.5);
 }
 
 .imageContainer {
+    position: relative;
+    width: 100%;
     height: 250px;
-    width: 250px;
-    border-radius: 8px;
     overflow: hidden;
 }
 
-.icon {
-    color: var(--highlight);
-    margin: 5px;
+.image {
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.imageContainer:hover .image {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.imageContainer:hover .overlay {
+    opacity: 1;
+}
+
+.overlayTitle {
+    color: var(--highlight-light);
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.content {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--foreground);
+    margin: 0;
 }
 
 .link {
-    color: var(--accent);
-    font-size: 16px;
-    margin: 5px;
+    text-decoration: none;
+    color: var(--highlight);
+    transition: color 0.3s ease;
+}
 
-    &:hover {
-        color: var(--highlight);
-    }
+.link:hover {
+    color: var(--highlight-light);
 }
 
 .description {
-    color: var(--accent);
+    font-size: 1rem;
+    color: var(--accent-light);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.techContainer {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.icon {
+    font-size: 1.5rem;
+    color: var(--highlight);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.icon:hover {
+    transform: scale(1.2);
+    color: var(--highlight-light);
 }
