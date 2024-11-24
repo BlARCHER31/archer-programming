@@ -5,8 +5,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    padding: 2rem 1.5rem;
+    justify-content: space-evenly;
+    padding: 1.5rem;
     position: fixed;
     top: 0;
     left: 0;
@@ -15,42 +15,43 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     border-right: 1px solid var(--gray-alpha-200);
     overflow-y: auto;
+    z-index: 1000;
 }
 
-.profile {
+.header {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 10px;
-    text-align: center;
-    margin-bottom: 30px;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 .profileImage {
     border-radius: 50%;
-    border: 3px solid var(--highlight);
-    transition: transform 0.3s ease, border-color 0.3s ease;
-    width: 100px;
-    height: 100px;
+    border: 2px solid var(--highlight);
+    width: 50px;
+    height: 50px;
     object-fit: cover;
 }
 
-.profileImage:hover {
-    transform: scale(1.05);
-    border-color: var(--highlight-light);
-}
-
 .name {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: bold;
     color: var(--foreground);
     margin: 0;
 }
 
-.title {
-    font-size: 1rem;
-    color: var(--accent-light);
-    margin: 0;
+.menuToggle {
+    background: none;
+    border: none;
+    color: var(--highlight);
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: none;
+}
+
+.menuIcon {
+    transition: transform 0.3s ease;
 }
 
 .menu {
@@ -61,6 +62,13 @@
     padding: 0;
     margin: 0;
     gap: 20px;
+    opacity: 1;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.menuOpen {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .link {
@@ -95,27 +103,33 @@
 
 @media (max-width: 768px) {
     .container {
-        width: 200px;
+        width: 100%;
+        height: auto;
+        position: relative;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
     }
 
-    .profileImage {
-        width: 80px;
-        height: 80px;
+    .header {
+        width: 100%;
     }
 
-    .name {
-        font-size: 1.2rem;
+    .menuToggle {
+        display: block;
     }
 
-    .title {
-        font-size: 0.9rem;
+    .menu {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        gap: 16px;
     }
 
-    .link {
-        font-size: 0.9rem;
-    }
-
-    .icon {
-        font-size: 1.3rem;
+    .menuOpen {
+        display: flex;
     }
 }

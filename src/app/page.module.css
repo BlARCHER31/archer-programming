@@ -37,9 +37,6 @@
 
 .highlight {
   color: var(--highlight);
-  text-decoration: underline;
-  text-underline-offset: 6px;
-  animation: glow 2s infinite alternate;
 }
 
 @keyframes glow {

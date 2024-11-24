@@ -1,25 +1,33 @@
-import React from 'react';
+"use client";
+
+import { useState } from 'react';
 import Image from 'next/image';
 import { IoHomeOutline } from 'react-icons/io5';
 import { FaUser } from 'react-icons/fa';
 import { FaProjectDiagram } from 'react-icons/fa';
+import { IoMenu, IoClose } from 'react-icons/io5';
 import styles from './navigation.module.css';
 
 export default function Navigation() {
+    const [isOpen, setIsOpen] = useState(false);
+    const toggleMenu = () => setIsOpen(!isOpen);
+
     return (
         <nav className={styles.container}>
-            <div className={styles.profile}>
+            <div className={styles.header}>
                 <Image
                     src="/images/portfolio-picture.jpeg"
                     alt="Blake Archer"
-                    width={80}
-                    height={80}
+                    width={50}
+                    height={50}
                     className={styles.profileImage}
                 />
                 <h2 className={styles.name}>Blake Archer</h2>
-                <p className={styles.title}>Full Stack Developer</p>
+                <button className={styles.menuToggle} onClick={toggleMenu}>
+                    {isOpen ? <IoClose className={styles.menuIcon} /> : <IoMenu className={styles.menuIcon} />}
+                </button>
             </div>
-            <ul className={styles.menu}>
+            <ul className={`${styles.menu} ${isOpen ? styles.menuOpen : ''}`}>
                 <li>
                     <a href="/" className={styles.link}>
                         <IoHomeOutline className={styles.icon} />
